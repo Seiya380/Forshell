@@ -71,7 +71,7 @@ Redirection fs_parse(char **args){
       r.isinfile = args[i+1];
       r.isoutfile = NULL;                                                                    
       r.isappend = 0;
-      remove_args(args, i)
+      remove_args(args, i);
     }
 
     else if (strcmp(args[i], ">") == 0)
@@ -79,7 +79,7 @@ Redirection fs_parse(char **args){
       r.isinfile = NULL;
       r.isoutfile = args[i+1];                                                                    
       r.isappend = 0;
-      remove_args(args, i)
+      remove_args(args, i);
     }
 
     else if (strcmp(args[i], ">>") == 0)
@@ -87,7 +87,7 @@ Redirection fs_parse(char **args){
       r.isinfile = NULL;
       r.isoutfile = args[i+1];                                                                    
       r.isappend = 1;
-      remove_args(args, i)
+      remove_args(args, i);
     }
   }
   return r;
@@ -101,13 +101,24 @@ Pipe fs_parse_pipe(char **args){
 
   for (int i = 0; args[i] != NULL; i++)
   {
-    if (strcmp(args[i], "|") == 0)
-    {
-      int len = 0;                                                                                                                                                                                        
+    if (strcmp(args[i], "|") == 0)                                                                                                                                                                      
+    {                                                                                                                                                                                                   
+      int len = 0;
       while (args[len] != NULL) len++;
-      p.left = malloc(i * sizeof(char*));
-      p.right = malloc((len - i - 1) * sizeof(char*));
+   
+      p.left = malloc((i + 1) * sizeof(char*));  
+
+      for (int j = 0; j < i; j++){
+        p.left[j] = args[j];
+      }
       p.left[i] = NULL;
+        
+      p.right = malloc((len - i) * sizeof(char*));
+      for (int j = 0; args[i+1+j] != NULL; j++){
+        p.right[j] = args[i+1+j]; 
+      }
+      p.right[len-i-1] = NULL;
     }
   }
+  return p;
 }
