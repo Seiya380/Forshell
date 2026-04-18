@@ -42,6 +42,21 @@ typedef struct {
   int isappend;
 } Redirection;
 
+typedef struct {                                                                                                                                                                                    
+    char **left;   // args avant le |                                                                                                                                                                 
+    char **right;  // args après le |                                                                                                                                                                 
+  } Pipe;
+
+void remove_args(char **args, int i) {                                                                                                                                                              
+    int j = i;                                                                                                                                                                                        
+    while (args[j+2] != NULL) {                                                                                                                                                                       
+      args[j] = args[j+2];                                                                                                                                                                            
+      j++;                                                                                                                                                                                          
+    }                                                                                                                                                                                                 
+    args[j] = NULL;
+    args[j+1] = NULL;
+  }                  
+
 Redirection fs_parse(char **args){
 
   Redirection r;
@@ -56,6 +71,7 @@ Redirection fs_parse(char **args){
       r.isinfile = args[i+1];
       r.isoutfile = NULL;                                                                    
       r.isappend = 0;
+      remove_args(args, i)
     }
 
     else if (strcmp(args[i], ">") == 0)
@@ -63,6 +79,7 @@ Redirection fs_parse(char **args){
       r.isinfile = NULL;
       r.isoutfile = args[i+1];                                                                    
       r.isappend = 0;
+      remove_args(args, i)
     }
 
     else if (strcmp(args[i], ">>") == 0)
@@ -70,6 +87,7 @@ Redirection fs_parse(char **args){
       r.isinfile = NULL;
       r.isoutfile = args[i+1];                                                                    
       r.isappend = 1;
+      remove_args(args, i)
     }
   }
   return r;

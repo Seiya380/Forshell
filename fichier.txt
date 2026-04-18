@@ -1,1 +1,27 @@
+total 72
+drwxr-xr-x  3 dot dot  4096 Apr 17 23:13 .
+drwxr-xr-x 10 dot dot  4096 Apr 17 12:04 ..
+-rw-r--r--  1 dot dot  1088 Apr 16 22:31 builtin.c
+-rw-r--r--  1 dot dot     0 Apr 17 23:13 fichier.txt
+-rwxr-xr-x  1 dot dot 17328 Apr 17 20:50 forshell
+-rw-r--r--  1 dot dot   360 Apr 16 23:41 forshell.c
+-rw-r--r--  1 dot dot   350 Apr 16 22:37 fs_exec.c
+-rw-r--r--  1 dot dot   844 Apr 16 22:30 fs_read_line.c
+drwxr-xr-x  7 dot dot  4096 Apr 17 22:54 .git
+-rw-r--r--  1 dot dot   463 Apr 16 18:52 .gitignore
+-rw-r--r--  1 dot dot  1116 Apr 16 23:40 launch.c
+-rw-r--r--  1 dot dot  1211 Apr 16 18:52 LICENSE
+-rw-r--r--  1 dot dot   206 Apr 16 22:32 main.c
+-rw-r--r--  1 dot dot  3953 Apr 17 22:56 parse.c
+-rw-r--r--  1 dot dot    36 Apr 16 18:52 README.md
+builtin.c
 fichier.txt
+forshell
+forshell.c
+fs_exec.c
+fs_read_line.c
+launch.c
+LICENSE
+main.c
+parse.c
+README.md
