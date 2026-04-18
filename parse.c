@@ -103,7 +103,11 @@ Pipe fs_parse_pipe(char **args){
   {
     if (strcmp(args[i], "|") == 0)
     {
-      r.left = 
+      int len = 0;                                                                                                                                                                                        
+      while (args[len] != NULL) len++;
+      p.left = malloc(i * sizeof(char*));
+      p.right = malloc((len - i - 1) * sizeof(char*));
+      p.left[i] = NULL;
     }
   }
 }
