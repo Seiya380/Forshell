@@ -93,7 +93,7 @@ Redirection fs_parse(char **args){
   return r;
 }
 
-Pipe fs_parse_pipe(char **args){
+Pipe fs_pipe(char **args){
   
   Pipe p;
   p.left = NULL;

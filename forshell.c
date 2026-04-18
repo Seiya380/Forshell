@@ -1,4 +1,5 @@
 #include "builtin.c"
+#include "pipe.c"
 #include "parse.c"
 #include "launch.c"
 #include "fs_exec.c"
