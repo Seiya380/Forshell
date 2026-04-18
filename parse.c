@@ -92,3 +92,18 @@ Redirection fs_parse(char **args){
   }
   return r;
 }
+
+Pipe fs_parse_pipe(char **args){
+  
+  Pipe p;
+  p.left = NULL;
+  p.right = NULL;
+
+  for (int i = 0; args[i] != NULL; i++)
+  {
+    if (strcmp(args[i], "|") == 0)
+    {
+      r.left = 
+    }
+  }
+}
