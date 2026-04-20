@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <unistd.h>
 #include <signal.h>
+#include <readline/readline.h>
 
 #include "history.c"
 #include "autocomplete.c"
@@ -9,7 +10,6 @@
 #include "pipe.c"
 #include "launch.c"
 #include "fs_exec.c"
-#include "fs_read_line.c"
 #include "signals.c"
 
 
@@ -21,14 +21,13 @@ void fs_loop(void)
   char cwd[1024];
 
 
-  fs_raw_mod();
   signal(SIGINT, handle_sigint); //Traite les signals unix pour le terminal
 
   do {
     getcwd(cwd, sizeof(cwd));
-    printf("%s\n", cwd);
-    printf("Forshell> ");
-    line = fs_read_line();
+    char prompt[1100];
+    snprintf(prompt, sizeof(prompt), "%s\nForshell> ", cwd);
+    line = readline(prompt);
     args = fs_split_line(line);
     status = fs_execute(args);
     fs_history(strdup(line));
@@ -36,5 +35,4 @@ void fs_loop(void)
     free(line);
     free(args);
   } while (status);
-  fs_restore();
 }

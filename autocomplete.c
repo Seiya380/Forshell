@@ -1,18 +1,4 @@
-#include <termios.h>
 #include <dirent.h>
-
-struct termios original;
-
-void fs_raw_mod(){
-    tcgetattr(0,&original);
-    struct termios raw = original;
-    raw.c_lflag &= ~(ICANON | ECHO);
-    tcsetattr(0, TCSANOW, &raw);
-}
-
-void fs_restore(){
-    tcsetattr(0, TCSANOW, &original);
-}
 
 void fs_autocomplete(char *buffer, int position){
     buffer[position] = '\0';
