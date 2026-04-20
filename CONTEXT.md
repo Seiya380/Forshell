@@ -35,12 +35,8 @@ Tutoriel de référence : https://brennan.io/2015/01/16/write-a-shell-in-c/
 | `fs_exec.c` | Dispatching builtins vs commandes externes |
 | `pipe.c` | fork/exec pour pipes ← EN COURS |
 
-## État actuel — pipe.c
-La fonction `fs_pipe_launch` est presque terminée. Il reste :
-- Corriger `waitpid(pid)` → `waitpid(pidpi)` ligne 52
-- Supprimer le `fork()` parasite ligne 54
-- Brancher `fs_pipe_launch` dans `fs_exec.c` quand un `|` est détecté
-- Ajouter `pipe.c` dans les includes de `forshell.c`
+## État actuel
+Les pipes sont terminés et fonctionnels. Prochaine étape : variables d'environnement.
 
 ## Conventions du projet
 - Préfixe `fs_` pour toutes les fonctions
