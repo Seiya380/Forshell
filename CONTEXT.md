@@ -17,8 +17,8 @@ Tutoriel de référence : https://brennan.io/2015/01/16/write-a-shell-in-c/
 - [x] Niveau 1 — Shell de base (fork/exec/wait)
 - [x] Niveau 1 — Redirections (>, <, >>)
 - [x] Niveau 1 — Pipes (|)
-- [ ] Niveau 1 — Variables d'environnement ← EN COURS
-- [ ] Niveau 1 — Historique
+- [x] Niveau 1 — Variables d'environnement
+- [ ] Niveau 1 — Historique ← EN COURS
 - [ ] Niveau 2 — Autocomplétion, prompt, Ctrl+C
 - [ ] Niveau 3 — Scripting (if, for, variables)
 - [ ] Niveau 4 — Globbing, alias, jobs
@@ -33,10 +33,11 @@ Tutoriel de référence : https://brennan.io/2015/01/16/write-a-shell-in-c/
 | `builtin.c` | Commandes intégrées : cd, help, exit |
 | `launch.c` | fork/exec pour commandes normales + redirections |
 | `fs_exec.c` | Dispatching builtins vs commandes externes |
-| `pipe.c` | fork/exec pour pipes ← EN COURS |
+| `pipe.c` | fork/exec pour pipes |
+| `history.c` | Historique des commandes ← À CRÉER |
 
 ## État actuel
-Les pipes sont terminés et fonctionnels. Prochaine étape : variables d'environnement.
+Pipes et variables d'environnement terminés. Prochaine étape : historique des commandes.
 
 ## Conventions du projet
 - Préfixe `fs_` pour toutes les fonctions

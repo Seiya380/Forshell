@@ -17,6 +17,7 @@ int fs_execute(char **args)
     }
   }
   i = 0;
+  fs_getenv(args);
   while (args[i] != NULL) {                                                                                                                                                                       
       if (strcmp(args[i], "|") == 0) {
         pi = 1;

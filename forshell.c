@@ -12,7 +12,7 @@ void fs_loop(void)
   int status;
 
   do {
-    printf("> ");
+    printf("Forshell> ");
     line = fs_read_line();
     args = fs_split_line(line);
     status = fs_execute(args);

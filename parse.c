@@ -122,3 +122,13 @@ Pipe fs_pipe(char **args){
   }
   return p;
 }
+
+void fs_getenv(char **args) {
+    int i = 0;
+    while (args[i] != NULL) {                                                                                                                                                                       
+      if (args[i][0] == '$') {
+        args[i] = getenv(args[i] + 1);
+      }                                                                                                                                                                          
+      i++;                                                                                                                                                                                          
+    }
+}
