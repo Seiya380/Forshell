@@ -18,12 +18,16 @@ char *fs_read_line(void)
     c = getchar();
 
     // If we hit EOF, replace it with a null character and return.
-    if (c == EOF || c == '\n') {
-      buffer[position] = '\0';
-      return buffer;
-    } else {
-      buffer[position] = c;
+    if (c == EOF) {                                   
+      exit(EXIT_SUCCESS);                           
     }
+    if (c == '\n') {                                  
+      buffer[position] = '\0';                      
+      return buffer;
+    }
+    else {        
+      buffer[position] = c;                         
+    } 
     position++;
 
     // If we have exceeded the buffer, reallocate.

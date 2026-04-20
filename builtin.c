@@ -7,6 +7,7 @@
 int fsd(char **args);
 int fsh(char **args);
 int fs_exit(char **args);
+int fs_history_builtin(char **args);
 
 /*
   List of builtin commands, followed by their corresponding functions.
@@ -14,13 +15,15 @@ int fs_exit(char **args);
 char *builtin_str[] = {
   "cd",
   "help",
-  "exit"
+  "exit",
+  "hist"
 };
 
 int (*builtin_func[]) (char **) = {
   &fsd,
   &fsh,
-  &fs_exit
+  &fs_exit,
+  &fs_history_builtin
 };
 
 int fs_num_builtins() {
@@ -56,6 +59,17 @@ int fsh(char **args)
   printf("Use the man command for information on other programs.\n");
   return 1;
 }
+
+int fs_history_builtin(char **args)
+{
+  int i = 0;
+  while (history[i] != NULL){
+    printf("%s\n", history[i]);
+    i++;
+  }
+  return 1;
+}
+
 
 int fs_exit(char **args)
 {
