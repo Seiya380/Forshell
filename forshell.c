@@ -1,6 +1,6 @@
 #include "builtin.c"
-#include "pipe.c"
 #include "parse.c"
+#include "pipe.c"
 #include "launch.c"
 #include "fs_exec.c"
 #include "fs_read_line.c"

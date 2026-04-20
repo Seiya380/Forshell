@@ -4,6 +4,7 @@
 int fs_execute(char **args)
 {
   int i;
+  int pi = 0;
 
   if (args[0] == NULL) {
     // An empty command was entered.
@@ -15,6 +16,15 @@ int fs_execute(char **args)
       return (*builtin_func[i])(args);
     }
   }
-
+  i = 0;
+  while (args[i] != NULL) {                                                                                                                                                                       
+      if (strcmp(args[i], "|") == 0) {
+        pi = 1;
+      }                                                                                                                                                                          
+      i++;                                                                                                                                                                                          
+    }
+  if (pi != 0) {
+    return fs_pipe_launch(args);
+  }
   return fs_launch(args);
 }

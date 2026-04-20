@@ -16,8 +16,8 @@ Tutoriel de référence : https://brennan.io/2015/01/16/write-a-shell-in-c/
 ## Roadmap
 - [x] Niveau 1 — Shell de base (fork/exec/wait)
 - [x] Niveau 1 — Redirections (>, <, >>)
-- [ ] Niveau 1 — Pipes (|) ← EN COURS
-- [ ] Niveau 1 — Variables d'environnement
+- [x] Niveau 1 — Pipes (|)
+- [ ] Niveau 1 — Variables d'environnement ← EN COURS
 - [ ] Niveau 1 — Historique
 - [ ] Niveau 2 — Autocomplétion, prompt, Ctrl+C
 - [ ] Niveau 3 — Scripting (if, for, variables)

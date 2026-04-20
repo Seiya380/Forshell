@@ -49,9 +49,8 @@ int fs_pipe_launch(char **args)
   } else {
     // Parent process
     do {
-        wpidpi = waitpid(pid, &status, WUNTRACED);
+        wpid = waitpid(pidpi, &status, WUNTRACED);
     } while (!WIFEXITED(status) && !WIFSIGNALED(status));
-    pidpi = fork();
   }
 
   return 1;
