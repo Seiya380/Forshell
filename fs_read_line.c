@@ -21,12 +21,18 @@ char *fs_read_line(void)
     if (c == EOF) {                                   
       exit(EXIT_SUCCESS);                           
     }
-    if (c == '\n') {                                  
+    if (c == '\n') {
+      putchar('\n');                                  
       buffer[position] = '\0';                      
       return buffer;
     }
+    if (c == '\t') {                                  
+      fs_autocomplete(buffer, position);
+      continue;
+    }
     else {        
-      buffer[position] = c;                         
+      buffer[position] = c;
+      putchar(c);                         
     } 
     position++;
 
