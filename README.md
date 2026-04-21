@@ -54,9 +54,7 @@ Forshell> exit
 - [x] History
 - [x] Ctrl+C handling
 - [x] Improved prompt (current directory)
-- [ ] Tab autocompletion
-- [ ] Scripting (if, for, variables)
-- [ ] Globbing, alias, jobs
+- [x] Tab autocompletion
 
 ## Author
 

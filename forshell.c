@@ -4,7 +4,6 @@
 #include <readline/readline.h>
 
 #include "history.c"
-#include "autocomplete.c"
 #include "builtin.c"
 #include "parse.c"
 #include "pipe.c"
